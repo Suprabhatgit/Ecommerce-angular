@@ -1,0 +1,450 @@
+<main id="sunglasses" class="collection-products">
+    <!-- ======================LOADING IMG====================== -->
+    <div
+      class="col-3 py-5 my-5 mx-auto"
+      *ngIf="this.global.loadingFlag; else ShowGallery"
+    >
+      <img src="assets/images/load.gif" class="w-100 my-5 py-5" />
+    </div>
+    <ng-template #ShowGallery>
+      <!-- =========================ALL PRODUCT HEADER======================== -->
+      <!-- NAVBAR================================== -->
+      <section class="allProduct-firstSection">
+        <app-navbar class="allProduct-navbar w-100"></app-navbar>
+        <!-- HEADER TEXT=========================== -->
+        <article class="allProduct-header d-flex flex-column align-items-center">
+          <!-- HEADER TEXT=========================== -->
+          <div class="container allProduct__container mx-auto">
+            <nav class="allProduct__nav-head text-center mt-5">
+              <ol class="breadcrumb justify-content-center">
+                <li
+                  class="breadcrumb-item allProduct__nav-list position-relative"
+                >
+                  <a class="text-decoration-none text-dark text-uppercase" href=""
+                    >Home</a
+                  >
+                </li>
+                <li class="mx-2 fw-bolder text-success allProduct__nav-list">
+                  >
+                </li>
+                <li
+                  class="breadcrumb-item text-uppercase allProduct__nav-list position-relative"
+                  aria-current="page"
+                >
+                  <a
+                    class="text-decoration-none text-dark text-uppercase"
+                    href="./collection/all"
+                    >product</a
+                  >
+                </li>
+                <li class="mx-2 fw-bolder text-success allProduct__nav-list">
+                  >
+                </li>
+                <li
+                  class="breadcrumb-item text-uppercase allProduct__nav-list position-relative"
+                  aria-current="page"
+                >
+                  sunglasses
+                </li>
+              </ol>
+            </nav>
+            <!-- ================ -->
+            <h1
+              class="allProduct__main-head fw-medium text-uppercase text-center text-success"
+            >
+              sunglasses
+            </h1>
+            <h5 class="text-center">
+              <i class="fa-solid fa-caret-left fs-6 text-success me-2"></i>
+              <a
+                class="text-decoration-none text-center text-center text-uppercase text-dark"
+                href="./collection/all"
+                >back to all</a
+              >
+            </h5>
+          </div>
+  
+          <!-- ======================================= -->
+        </article>
+      </section>
+      <!-- ==========================PRODUCTS================================= -->
+      <section class="all-products my-5">
+        <div class="container-fluid row">
+          <ul
+            class="all-products__categories py-4 col-md-3 d-md-flex flex-column d-none container mx-auto my-5 flex-wrap justify-content-start align-items-start"
+          >
+            <li
+              class="m-2 pe-md-2 pe-2 my-2 position-relative text-uppercase list-unstyled text-start"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/all"
+              >
+                all products
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge text-success"
+                >
+                  100
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 my-2 position-relative text-uppercase list-unstyled"
+            >
+              <a
+                href="./collection/mens-shirts"
+                class="text-decoration-none text-black fw-medium"
+              >
+                men's shirts
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 my-2 position-relative text-uppercase list-unstyled"
+            >
+              <a
+                href="./collection/womens-dresses"
+                class="text-decoration-none text-black fw-medium"
+              >
+                women's dresses
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 my-2 position-relative text-uppercase list-unstyled"
+            >
+              <a
+                href="./collection/womens-bags"
+                class="text-decoration-none text-black fw-medium"
+              >
+                bags
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 my-2 position-relative text-uppercase list-unstyled"
+            >
+              <a
+                href="./collection/sunglasses"
+                class="text-decoration-none text-black fw-medium"
+              >
+                sunglasses
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/mens-watches  "
+                >men's watches
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/womens-watches   "
+                >women's watches
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/mens-shoes   "
+                >men's shoes
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/womens-shoes   "
+                >women's shoes
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="dropdown-item position-relative fw-medium text-uppercase"
+                href="./collection/laptops"
+                >electronics
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="dropdown-item position-relative fw-medium text-uppercase"
+                href="./collection/smartphones"
+                >smartphones
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/lighting"
+                >lighting
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/groceries"
+                >groceries
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            <li
+              class="m-2 pe-2 dropdown position-relative text-uppercase list-unstyled"
+            >
+              <a
+                class="text-decoration-none text-black fw-medium"
+                href="./collection/furniture"
+                >furniture
+                <span
+                  class="position-absolute top-0 translate-middle badge text-success"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <!-- ============ -->
+          <div class="all-products__products col-md-9 col-12">
+            <div class="row justify-content-between">
+              <h6 class="col-md-5 col-12 all-products__header text-start">
+                Showing: 5 products
+              </h6>
+              <form class="col-lg-4 col-md-6 col-12 text-md-end">
+                <select
+                  class="form-select text-uppercase"
+                  aria-label="Default select example"
+                  (change)="
+                    this.functions.filterProduct(
+                      $event.target,
+                      this.global.sunglasses
+                    )
+                  "
+                >
+                  <option value="Low" selected class="lowToHigh text-uppercase">
+                    price low to high
+                  </option>
+                  <option value="High" class="highToLow text-uppercase">
+                    price high to low
+                  </option>
+                  <option value="A-Z" class="A-Z text-uppercase">
+                    Alphabetically, A-Z
+                  </option>
+                  <option value="Z-A" class="Z-A text-uppercase">
+                    Alphabetically, Z-A
+                  </option>
+                </select>
+              </form>
+            </div>
+            <div class="row my-4">
+              <!-- ======================PRODUCTS======================== -->
+              <article class="collection-products products container-fluid">
+                <div class="row justify-content-center">
+                  <div
+                    class="card products__card border-0 col-md-4 col-sm-6 col-8 mx-auto my-3 rounded-0"
+                    *ngFor="
+                      let item of this.global.sunglasses;
+                      let i = index;
+                      let last = last
+                    "
+                  >
+                    <figure class="products_card">
+                      <a
+                        href="./Product/{{ item?.id }}"
+                        class="position-relative"
+                      >
+                        <div class="products__front">
+                          <img
+                            [src]="item?.images[0]"
+                            class="card-img-top img-thumbnail rounded-0 front__img d-block"
+                            [alt]="item?.title"
+                          />
+                          <img
+                            [src]="item?.images[2]"
+                            class="card-img-top img-thumbnail rounded-0 back__img d-none"
+                            [alt]="item?.title"
+                          />
+                        </div>
+                        <div
+                          class="product__onSale-circle d-block bg-success position-absolute z-3"
+                        >
+                          <span
+                            class="text-center text-light position-absolute top-50 start-50 translate-middle fw-bold"
+                            >{{ item.discountPercentage.toFixed() }}%</span
+                          >
+                        </div>
+                      </a>
+                    </figure>
+                    <figcaption
+                      class="products__action bg-white position-absolute d-none flex-column p-2"
+                    >
+                      <button
+                        class="btn btn-outline-success my-2 product__addToWish w-100 border-0"
+                        type="button"
+                        (click)="this.functions.addToWish(item, $event)"
+                        title="login to use wish"
+                      >
+                        <i
+                          class="fa-regular fa-heart"
+                          style="pointer-events: none"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                      <button
+                        class="btn btn-outline-success my-2 product__addToCart w-100 border-0"
+                        type="button"
+                        (click)="this.functions.addToCart(item, $event)"
+                      >
+                        <i
+                          class="fa-solid fa-cart-shopping"
+                          style="pointer-events: none"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                    </figcaption>
+                    <div class="card-body p-0">
+                      <a
+                        href="./Product/{{ item?.id }}"
+                        class="card-title link link-secondary mx-auto text-start fw-medium"
+                        >{{ item.title }}</a
+                      >
+                    </div>
+                    <div
+                      class="card-footer p-0 mt-4 bg-transparent text-black fw-medium border-0"
+                    >
+                      <div class="rating">
+                        <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+                        <progress
+                          class="rating-bg"
+                          value="{{
+                            this.functions.calculateRating(item.rating)
+                          }}"
+                          max="5"
+                        ></progress>
+                        <svg><use xlink:href="#fivestars" /></svg>
+                      </div>
+                      <div
+                        class="product__price d-block text-dark-50 fw-medium mt-2"
+                      >
+                        <del class="text-black-50"
+                          >${{
+                            (
+                              item.price +
+                              item.price *
+                                (item.discountPercentage.toFixed() / 100)
+                            ).toFixed(2)
+                          }}</del
+                        >
+                        ${{ item.price.toFixed(2) }}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-outline-success product__addToCart d-none mt-2"
+                      (click)="this.functions.addToCart(item, $event)"
+                    >
+                      <i
+                        class="fa-solid fa-cart-shopping fs-6"
+                        style="pointer-events: none"
+                        aria-hidden="true"
+                      ></i>
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======================FOOTER=========================-->
+      <app-footer></app-footer>
+      <!-- ============================================================ -->
+    </ng-template>
+  </main>
+  

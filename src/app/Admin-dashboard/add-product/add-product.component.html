@@ -1,0 +1,230 @@
+<main id="editProduct">
+    <app-navbar></app-navbar>
+    <!-- ================== -->
+    <div class="alert alert-success" *ngIf="divedit">
+      <h2>adding successfully</h2>
+    </div>
+    <!-- ============================================ -->
+    <div class="alert alert-danger" *ngIf="diverr">
+      <h2>error in adding data</h2>
+    </div>
+    <!-- ============================================ -->
+    <section class="editProduct container mx-auto my-2">
+      <h1 class="text-uppercase text-success text-center">add new product</h1>
+      <form
+        #addNewProductform="ngForm"
+        (ngSubmit)="handleSubmit(addNewProductform)"
+      >
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlTitle"
+              class="col-form-label fw-medium text-capitalize"
+              >product Title</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlTitle"
+              type="text"
+              [(ngModel)]="model.title"
+              name="title"
+              #title="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlDescription"
+              class="col-form-label fw-medium text-capitalize"
+              >product description</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlDescription"
+              type="text"
+              [(ngModel)]="model.description"
+              name="description"
+              #description="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlPrice"
+              class="col-form-label fw-medium text-capitalize"
+              >product price</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlPrice"
+              type="text"
+              [(ngModel)]="model.price"
+              name="price"
+              #price="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlDiscountPercentage"
+              class="col-form-label fw-medium text-capitalize"
+              >product discount Percentage</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlDiscountPercentage"
+              type="text"
+              [(ngModel)]="model.discountPercentage"
+              name="discountPercentage"
+              #discountPercentage="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlRating"
+              class="col-form-label fw-medium text-capitalize"
+              >product rating</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlRating"
+              type="text"
+              [(ngModel)]="model.rating"
+              name="rating"
+              #rating="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlStock"
+              class="col-form-label fw-medium text-capitalize"
+              >product stock</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlStock"
+              type="text"
+              [(ngModel)]="model.stock"
+              name="stock"
+              #stock="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlBrand"
+              class="col-form-label fw-medium text-capitalize"
+              >product brand</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlBrand"
+              type="text"
+              [(ngModel)]="model.brand"
+              name="brand"
+              #brand="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlCategory"
+              class="col-form-label fw-medium text-capitalize"
+              >product category</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlCategory"
+              type="text"
+              [(ngModel)]="model.category"
+              name="category"
+              #category="ngModel"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="exampleFormControlThumbnail"
+              class="col-form-label fw-medium text-capitalize"
+              >product thumbnail</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              id="exampleFormControlThumbnail"
+              [(ngModel)]="model.thumbnail"
+              name="thumbnail"
+              #thumbnail="ngModel"
+              type="file"
+              (change)="handleChange($event)"
+            />
+          </div>
+        </div>
+  
+        <div class="row g-3 my-3 align-items-center">
+          <div class="col-3">
+            <label
+              for="formFileMultiple1"
+              class="col-form-label fw-medium text-capitalize"
+              >product images</label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              class="form-control"
+              type="file"
+              [(ngModel)]="model.images"
+              name="images"
+              #images="ngModel"
+              id="formFileMultiple1"
+              multiple
+              (change)="handleChange($event)"
+            />
+          </div>
+        </div>
+  
+        <button
+          class="btn btn-outline-success text-capitalize fw-medium my-4 px-5 py-2"
+        >
+          confirm adding
+        </button>
+      </form>
+    </section>
+    <!-- ============================================ -->
+    <app-footer></app-footer>
+  </main>

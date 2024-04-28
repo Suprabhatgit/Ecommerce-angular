@@ -1,0 +1,183 @@
+<main id="cart">
+    <!-- ================================================ -->
+    <app-navbar></app-navbar>
+    <!-- ================================================ -->
+    <section class="head bg-black m-0 py-3">
+      <div class="container mx-auto text-center">
+        <h1 class="text-uppercase text-white">cart</h1>
+        <nav aria-label="breadcrumb bg-black " data-bs-theme="dark">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item">
+              <a class="text-secondary text-decoration-none" href=""
+                ><i class="fa-solid fa-house me-1"></i> Home</a
+              >
+            </li>
+            <li
+              class="breadcrumb-item text-capitalize active"
+              aria-current="page"
+            >
+              cart
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+    <!-- ================================================ -->
+    <section class="emptyCart" *ngIf="empty; else showCart">
+      <div>
+        <h2 class="text-uppercase py-5 text-center">
+          your shopping cart is empty go to
+          <a class="text-success" href="./collection/all">products</a>
+        </h2>
+      </div>
+    </section>
+    <!-- ========================= -->
+    <ng-template #showCart>
+      <section class="cart-table container-fluid my-4">
+        <div class="row mt-5">
+          <div class="col-xl-9 col-12">
+            <table class="cart-Products__table table table-striped">
+              <thead>
+                <tr class="w-100">
+                  <th class="col th1"></th>
+                  <th class="col th2"></th>
+                  <th class="col th3 text-uppercase">product</th>
+                  <th class="col th4 text-uppercase">price</th>
+                  <th class="col th5 text-uppercase">quantity</th>
+                  <th class="col th4 text-uppercase">total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="cart-products"
+                  *ngFor="let item of this.global?.cart; let i = index"
+                >
+                  <th class="" scope="row">
+                    <button
+                      class="border-0 bg-transparent"
+                      (click)="deleteMeal($event)"
+                    >
+                      <i class="fa-solid fa-circle-xmark text-black fs-4"></i>
+                    </button>
+                  </th>
+                  <td>
+                    <a href="./Product/{{ item?.id }}">
+                      <img
+                        class="cart-img"
+                        [src]="item.images[0]"
+                        alt="product image"
+                      />
+                    </a>
+                  </td>
+                  <td>
+                    <a
+                      href="./Product/{{ item?.id }}"
+                      class="text-decoration-none text-black"
+                      >{{ item.title }}
+                    </a>
+                    <br />
+                    <a
+                      href="./collection/{{ item.category }}"
+                      class="text-decoration-none text-secondary"
+                      >{{ item.category }}</a
+                    >
+                  </td>
+                  <td class="product-price" colspan="1">
+                    {{ item?.price.toFixed(2) | currency }}
+                  </td>
+                  <td class="quantity">
+                    <form>
+                      <input
+                        (change)="validateInput($event, i)"
+                        value="1"
+                        [placeholder]="1"
+                        type="number"
+                        [(ngModel)]="item.qty"
+                        name="qty"
+                        min="1"
+                        class="cart__box border rounded border-dark text-secondary fw-bold text-center"
+                      />
+                    </form>
+                  </td>
+                  <td class="product-totalPrice fw-bold" colspan="1">
+                    {{ updatePrice(item.qty, item?.price).toFixed(2) | currency }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- =========================== -->
+          <div class="sub-totalPrice col-xl-3 col-12 mt-5">
+            <div
+              class="sub-totalPrice__head px-3 pb-5 border border-3 position-relative border-success container"
+            >
+              <h2 class="text-uppercase sub-totalPrice__h2">cart total</h2>
+              <table class="sub-totalPrice__table w-75">
+                <tbody>
+                  <tr>
+                    <td class="fw-medium me-2 fs-5">subtotal</td>
+                    <td class="text-uppercase fw-bold fs-5">
+                      {{ this.global.totalPrice | currency }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+   
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-outline-success my-2 product__addToCart w-75 d-block mx-auto mt-5"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                PROCEED TO CHECKOUT
+              </button>
+   
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5 text-danger fw-bold"
+                        id="exampleModalLabel"
+                      >
+                        successfully placed the order
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      Thank for ordering. We received your order and will begin
+                      processing it soon.
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </ng-template>
+    <!-- ================================================ -->
+    <app-footer></app-footer>
+  </main>

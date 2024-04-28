@@ -1,0 +1,53 @@
+.cart-img {
+    max-width: 80px;
+  }
+  th,
+  td {
+    vertical-align: middle;
+  }
+  h1,
+  .sub-totalPrice__head,
+  .sub-totalPrice__h2 {
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+    letter-spacing: 5px;
+  }
+  .modal,
+  .modal h1 {
+    letter-spacing: 1px;
+  }
+  @media (max-width: 576px) {
+    .cart-Products__table thead {
+      display: none;
+    }
+    .cart-Products__table {
+      margin-top: 15px;
+    }
+    .product__addToCart {
+      font-size: 12px;
+    }
+    .cart-products,
+    .sub-totalPrice__table tr {
+      /* margin-top: 15px; */
+      display: flex !important;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .addToCart-button {
+      border-bottom: 1px solid #000;
+    }
+  }
+  .quantity input {
+    width: 60px;
+  }
+  .sub-totalPrice__head {
+    padding: 50px;
+  }
+  .sub-totalPrice__h2 {
+    position: absolute;
+    top: -23px;
+    z-index: 10;
+    padding: 0 5px;
+    background-color: #fff;
+  }

@@ -1,0 +1,39 @@
+.singleProduct .carousel-indicators button {
+    padding: 1px !important;
+  }
+  /* =============================================================== */
+  
+  /* ===================================================== */
+  .singleProduct__addWish:hover {
+    color: rgba(var(--bs-success-rgb)) !important;
+  }
+  /* ===================================================== */
+  .nav-link {
+    --bs-nav-link-color: #999 !important;
+  }
+  .nav-link:focus,
+  .nav-link:hover {
+    --bs-nav-link-hover-color: #000 !important;
+  }
+  .nav-pills .nav-link.active {
+    --bs-nav-pills-link-active-color: #000;
+    --bs-nav-pills-link-active-bg: transparent !important;
+    --bs-nav-link-hover-color: #999 !important;
+  
+    /* --bs-nav-pills-link-active-bg: #999; */
+  }
+  .singleProduct__image-zoom {
+    cursor: zoom-in;
+    width: 100% !important;
+  }
+  
+  ::ng-deep .ngxImageZoomContainer,
+  ::ng-deep .ngxImageZoomThumbnail {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /* .card-img-top {
+    min-height: 270px;
+    max-height: 400px;
+  } */
+  

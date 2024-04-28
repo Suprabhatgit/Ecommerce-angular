@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+    .login__alert-error,
+    .login-container {
+      width: 40%;
+    }
+  }
+  .form-control:focus {
+    /* color: var(--bs-body-color); */
+    /* background-color: var(--bs-body-bg); */
+    border: none;
+    border-bottom: 1px solid #1aada3;
+    outline: 0;
+    box-shadow: none;
+  }
+  

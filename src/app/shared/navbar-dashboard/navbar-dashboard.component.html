@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg main bg-secondary py-2">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bolder"
+        ><i class="fa-solid fa-pen-to-square"></i> Dashboard</a
+      >
+      <button
+        class="navbar-toggler bg-light"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link text-white fw-bold rounded-0 px-3 text-uppercase"
+              href="Admin-dashboard/products"
+              aria-current="page"
+              routerLinkActive=" bg-success "
+              [routerLinkActiveOptions]="{ exact: true }"
+              >products</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link fw-bold rounded-0 text-white px-3 text-uppercase"
+              href="Admin-dashboard/addNewProduct"
+              routerLinkActive="bg-success"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >add new product</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

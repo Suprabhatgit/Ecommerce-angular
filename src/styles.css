@@ -1,1 +1,347 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Pacifico&display=swap");
+ 
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;600;700&family=Lora:ital@1&family=Montserrat:wght@700&display=swap");
+ 
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Montserrat:wght@700&display=swap");
+ 
+:root {
+  --main-color: #1aada3;
+  --bs-success-rgb: 26, 173, 163 !important;
+  --bs-body-font-size: 16px !important;
+}
+.container-nav {
+  width: 95% !important;
+}
+.bg-success {
+  background-color: rgba(var(--bs-success-rgb));
+}
+/* =========================STARS RATING============================= */
+.rating {
+  width: 120px;
+  height: 24px;
+  position: relative;
+  background-color: gray;
+}
+ 
+.rating progress.rating-bg {
+  -webkit-appearance: none;
+  -moz-appearence: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  height: 24px;
+  width: 100%;
+  color: orange;
+}
+ 
+.rating progress.rating-bg::-webkit-progress-value {
+  background-color: orange;
+}
+ 
+.rating progress.rating-bg::-moz-progress-bar {
+  background-color: orange;
+}
+ 
+.rating svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* ===========================NAVBAR=========================== */
+.home-navbar #main-navbar {
+  background-color: #fff !important;
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+.allProduct-navbar #top-nav {
+  background-color: #000 !important;
+}
+.allProduct-navbar .main-navbar {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+  display: block !important;
+}
+ 
+/* .allProduct-navbar #main-navbar > .nav-item {
+  font-weight: 700 !important;
+} */
+/* ===============================COMPONENT========================================= */
+.categories__text,
+.products__text,
+.allProduct__nav-head,
+.allProduct__main-head {
+  font-family: Karla, "MS Sans Serif", Geneva, sans-serif;
+}
+.singleProduct__head {
+  font-family: Lora, "MS Sans Serif", Geneva, sans-serif;
+}
+/* .product__price {
+  font-family: "Dosis", Helvetica, Arial, sans-serif;
+} */
+.allProduct__main-head {
+  font-family: "Dosis", Helvetica, Arial, sans-serif;
+  letter-spacing: 4px;
+}
+.categories__text p,
+.products__text p,
+.join__logo,
+.join__head,
+.product__price {
+  font-family: "Lora", serif !important;
+}
+.categories__container img,
+.products__front,
+.review__partners,
+.singleProduct__imgs img {
+  overflow: hidden !important;
+  filter: brightness(0.85) !important;
+  -webkit-filter: brightness(0.85) !important;
+}
+/* ======================== background image====================== */
+#homePage .shop {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(./assets/images/shop-bg.jpg) no-repeat top center / cover;
+}
+#homePage .join {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(./assets/images/Breaking_the_Duality_1728x.jpg) no-repeat top center / cover;
+}
+.allProduct-firstSection {
+  background: url(./assets/images/shop-header-bg.webp) no-repeat top center /
+    cover;
+  /* height: 60vh; */
+}
+/* linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), */
+/* ==========================products============================ */
+.products__card {
+  overflow: hidden;
+  transition: 0.4s !important;
+  -webkit-transition: 0.4s !important;
+  -moz-transition: 0.4s !important;
+  -ms-transition: 0.4s !important;
+  -o-transition: 0.4s !important;
+}
+ 
+.products__card:hover :where(.product__price, .front__img) {
+  display: none !important;
+}
+.products__card:hover .products__action {
+  display: flex !important;
+  right: 22px;
+  top: 10px;
+}
+.products__card:hover :where(.back__img, .product__addToCart) {
+  display: block !important;
+}
+.products__front {
+  cursor: pointer;
+}
+@media (min-width: 576px) {
+  .product__addToCart {
+    margin-right: 50%;
+  }
+}
+/* .fa-cart-shopping,
+.fa-heart {
+  cursor: pointer;
+} */
+.product__addToCart,
+.product__addToWish {
+  --bs-btn-hover-bg: var(--main-color) !important;
+  --bs-btn-border-color: var(--main-color) !important;
+  --bs-btn-hover-border-color: var(--main-color) !important;
+  --bs-btn-color: var(--main-color) !important;
+  --bs-btn-disabled-color: var(--main-color) !important;
+  --bs-btn-active-bg: var(--main-color) !important;
+  --bs-btn-active-border-color: var(--main-color) !important;
+  --bs-btn-disabled-border-color: var(--main-color) !important;
+}
+/* .product__addToCart:hover {
+  color: #000;
+  font-weight: 500;
+} */
+.categories__text hr,
+.products__text hr {
+  width: 40px;
+}
+.product__onSale-circle {
+  width: 50px !important ;
+  top: 5px;
+  left: 5px;
+  aspect-ratio: 1;
+  clip-path: polygon(
+    100% 50%,
+    90.68% 55.14%,
+    98.43% 62.43%,
+    88.12% 65.09%,
+    93.82% 74.09%,
+    83.17% 74.1%,
+    86.45% 84.23%,
+    76.13% 81.59%,
+    76.79% 92.22%,
+    67.46% 87.1%,
+    65.45% 97.55%,
+    57.68% 90.27%,
+    53.14% 99.9%,
+    47.43% 90.92%,
+    40.63% 99.11%,
+    37.33% 88.99%,
+    28.71% 95.24%,
+    28.03% 84.62%,
+    18.13% 88.53%,
+    20.11% 78.07%,
+    9.55% 79.39%,
+    14.07% 69.75%,
+    3.51% 68.41%,
+    10.29% 60.2%,
+    0.39% 56.27%,
+    9% 50%,
+    0.39% 43.73%,
+    10.29% 39.8%,
+    3.51% 31.59%,
+    14.07% 30.25%,
+    9.55% 20.61%,
+    20.11% 21.93%,
+    18.13% 11.47%,
+    28.03% 15.38%,
+    28.71% 4.76%,
+    37.33% 11.01%,
+    40.63% 0.89%,
+    47.43% 9.08%,
+    53.14% 0.1%,
+    57.68% 9.73%,
+    65.45% 2.45%,
+    67.46% 12.9%,
+    76.79% 7.78%,
+    76.13% 18.41%,
+    86.45% 15.77%,
+    83.17% 25.9%,
+    93.82% 25.91%,
+    88.12% 34.91%,
+    98.43% 37.57%,
+    90.68% 44.86%
+  );
+}
+.card-body,
+.card-footer {
+  font-size: 16px;
+}
+@media (max-width: 576px) {
+  .product__onSale-circle {
+    width: 25px !important ;
+    font-size: 9px;
+  }
+  .card-body,
+  .card-footer {
+    font-size: 14px;
+  }
+}
+ 
+/* ============================COLLECTION============================= */
+.collection-products .allProduct__nav-list {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.collection-products .allProduct__nav-list:first-of-type::before {
+  content: "";
+  width: 65px;
+  height: 0.1px;
+  position: absolute;
+  left: -70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(var(--bs-success-rgb));
+}
+.collection-products .allProduct__nav-list:last-of-type::after {
+  content: "";
+  width: 65px;
+  height: 0.1px;
+  position: absolute;
+  right: -70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(var(--bs-success-rgb));
+}
+.collection-products .accordion-button:focus,
+.collection-products .accordion-item,
+.collection-products .accordion-button:not(.collapsed) {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+.collection-products .accordion-button {
+  width: 170px;
+  border: 1px solid rgba(var(--bs-success-rgb)) !important;
+}
+.collection-products .accordion-collapse .accordion-body {
+  top: 25px;
+  padding: 30px 0;
+  border: 1px solid rgba(var(--bs-success-rgb));
+}
+.collection-products .list-otherCollection.show,
+.collection-products .list-otherCollection,
+.collection-products .list-otherCollection:active {
+  border: none !important;
+}
+@media (max-width: 576px) {
+  .collection-products .allProduct__nav-list {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .collection-products .allProduct__nav-list:first-of-type::before {
+    width: 30px;
+    left: -35px;
+  }
+  .collection-products .allProduct__nav-list:last-of-type::after {
+    width: 30px;
+    right: -35px;
+  }
+ 
+  .all-products__header,
+  .form-select {
+    font-size: 9px;
+  }
+}
+ 
+.card-img-top {
+  object-fit: contain;
+  max-height: 16vw;
+  min-height: 16vw;
+  max-width: 100%;
+  border: none;
+}
+@media (max-width: 768px) {
+  .card-img-top {
+    object-fit: contain;
+    max-height: 24vw;
+    min-height: 24vw;
+  }
+  .collection-products .card-img-top {
+    object-fit: cover;
+    max-height: 45vw;
+    min-height: 45vw;
+  }
+}
+@media (max-width: 576px) {
+  .card-img-top {
+    max-height: 33vw;
+    min-height: 33vw;
+  }
+}
+ 
+.accordion-button {
+  font-size: 16px !important;
+}
+.accordion-button::after {
+  --bs-accordion-btn-icon-width: 16px !important;
+}
+.collection-products .form-select,
+.all-products__header {
+  font-size: 16px;
+}

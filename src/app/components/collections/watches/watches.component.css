@@ -1,0 +1,7 @@
+@media (min-width: 769px) {
+    .card-img-top {
+      object-fit: cover !important;
+      max-height: 27vw !important;
+      min-height: 27vw !important;
+    }
+  }

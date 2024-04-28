@@ -1,0 +1,166 @@
+.home-curousel__text h6 {
+    font-family: Pacifico, serif;
+  }
+   
+  .home__carousel {
+    filter: brightness(0.95) !important;
+    -webkit-filter: brightness(0.95) !important;
+  }
+  .curousel__shop-now,
+  .shop__shop-now,
+  .shop__purchase-basel {
+    font-size: 16px !important;
+    padding: 5px 12px !important;
+  }
+  .categories__button {
+    font-size: 18px !important;
+    padding: 8px 16px !important;
+  }
+   
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 5%;
+  }
+  .curousel .hvr-rectangle-out:before {
+    background-color: #000;
+  }
+  @media (min-width: 1100px) {
+    .home-curousel__text1 {
+      text-align: left;
+      width: 60%;
+      transform: translate(-70%, -50%) !important ;
+      -webkit-transform: translate(-70%, -50%) !important ;
+      -moz-transform: translate(-70%, -50%) !important ;
+      -ms-transform: translate(-70%, -50%) !important ;
+      -o-transform: translate(-70%, -50%) !important ;
+    }
+    .home-curousel__text2 {
+      text-align: right;
+      width: 60%;
+      transform: translate(-30%, -50%) !important ;
+      -webkit-transform: translate(-30%, -50%) !important ;
+      -moz-transform: translate(-30%, -50%) !important ;
+      -ms-transform: translate(-30%, -50%) !important ;
+      -o-transform: translate(-30%, -50%) !important ;
+    }
+    .home-curousel__text h2 {
+      font-size: 100px;
+      font-weight: 700;
+    }
+    .home-curousel__text h6 {
+      font-size: 63px;
+      font-weight: 500;
+    }
+  }
+  @media (max-width: 1099px) {
+    .home-curousel__text h2 {
+      font-size: 50px;
+    }
+    .home-curousel__text h6 {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 576px) {
+    .home-curousel__text h2 {
+      font-size: 16px;
+    }
+    .home-curousel__text h6 {
+      font-size: 15px;
+    }
+    .curousel__shop-now,
+    .curousel__purchase-basel {
+      font-size: 12px !important;
+      padding: 5px !important;
+    }
+  }
+  @media (max-width: 230px) {
+    /* .home__carousel {
+    } */
+    .home-curousel__text h2 {
+      font-size: 8px;
+    }
+    .home-curousel__text h6 {
+      font-size: 6px !important;
+    }
+    .curousel__shop-now {
+      font-size: 8px !important;
+      padding: 2px !important;
+    }
+  }
+   
+  .categories__text :where(h6, h4),
+  .products__text :where(h6, h4) {
+    letter-spacing: 2px;
+  }
+  @media (max-width: 576px) {
+    .categories__text :where(h6, h4),
+    .products__text :where(h6, h4) {
+      font-size: 13px;
+    }
+  }
+   
+  .categories__img figcaption {
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    font-family: Lora, "MS Sans Serif", Geneva, sans-serif;
+  }
+  .categories__img img {
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+  }
+  .categories__img img:hover {
+    padding: 0;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
+   
+  .join__logo {
+    font-size: 29px;
+  }
+  .join__head {
+    font-size: 53px;
+  }
+  .join__text {
+    font-size: 13px;
+  }
+  @media (max-width: 576px) {
+    .join__logo {
+      font-size: 13px;
+    }
+    .join__head {
+      font-size: 24px;
+    }
+    .join__text {
+      width: 100% !important;
+    }
+  }
+  @media (min-width: 993px) {
+    .card-img-top {
+      max-height: 19vw !important;
+      min-height: 19vw !important;
+    }
+  }
+  @media (max-width: 992px) and (min-width: 576px) {
+    .card-img-top {
+      max-height: 36vw !important;
+      min-height: 36vw !important;
+    }
+  }
+  @media (max-width: 576px) {
+    .card-img-top {
+      max-height: 50vw !important;
+      min-height: 50vw !important;
+    }
+  }

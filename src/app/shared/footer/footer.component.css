@@ -1,0 +1,16 @@
+.footer__list a {
+    font-size: 16px !important;
+  }
+  .scroll {
+    cursor: pointer;
+    position: fixed;
+    bottom: 10%;
+    right: 3%;
+  }
+  .scroll:hover {
+    background-color: #20c997 !important;
+    border: none !important;
+  }
+  .scroll:hover .fa-angle-up {
+    color: white !important;
+  }

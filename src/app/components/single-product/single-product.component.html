@@ -1,0 +1,422 @@
+<main id="singleProduct">
+    <div
+      class="col-2 my-5 py-5 mx-auto"
+      *ngIf="this.global.loadingFlag; else ShowGallery"
+    >
+      <img src="assets/images/load.gif" class="w-100 my-5 py-5" />
+    </div>
+    <ng-template #ShowGallery>
+      <!-- =========================NAV====================================== -->
+      <app-navbar></app-navbar>
+      <!-- =========================NAV====================================== -->
+      <nav
+        aria-label="breadcrumb"
+        class="singleProduct__navbar bg-body-secondary py-2 container-fluid"
+      >
+        <ol class="breadcrumb align-items-center m-0">
+          <li class="breadcrumb-item">
+            <a class="text-capitalize text-black text-decoration-none" href=""
+              ><i class="fa-solid fa-house-chimney pe-2"></i>home</a
+            >
+          </li>
+  
+          <li class="breadcrumb-item">
+            <a
+              class="text-capitalize text-black text-decoration-none"
+              routerLink="{{ singleProduct.category.toLowerCase() }}"
+              >{{ singleProduct.category }}</a
+            >
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {{ singleProduct.title }}
+          </li>
+        </ol>
+      </nav>
+      <!-- =========================singleProduct============================= -->
+      <section class="singleProduct my-5">
+        <div class="container row align-items-start mx-auto">
+          <div class="singleProduct__imgs col-md-6 col-12 row">
+            <figure
+              class="singleProduct__img col-md-3 col-12 d-flex flex-column align-items-center justify-content-between p-0"
+            >
+              <ng-container
+                *ngFor="let item of singleProduct.images; let i = index"
+              >
+                <img
+                  *ngIf="img(i, item)"
+                  class="d-block w-100"
+                  src="{{ item }}"
+                  alt="{{ singleProduct.title }} image"
+                />
+              </ng-container>
+            </figure>
+            <div
+              id="carouselExampleDark"
+              class="carousel carousel-dark slide singleProduct__img col-md-9 col-12 pb-5 d-none d-md-block"
+            >
+              <div class="carousel-inner position-relative">
+                <div
+                  class="product__onSale-circle d-block bg-success position-absolute z-3"
+                >
+                  <span
+                    class="text-center text-light position-absolute top-50 start-50 translate-middle fw-bold"
+                    >{{ singleProduct.discountPercentage.toFixed() }}%</span
+                  >
+                </div>
+                <ng-container
+                  *ngFor="
+                    let item of singleProduct.images;
+                    let i = index;
+                    let first = first
+                  "
+                >
+                  <div
+                    class="carousel-item"
+                    data-bs-interval="10000"
+                    *ngIf="img(i, item)"
+                    [ngClass]="{ active: first }"
+                  >
+                    <!-- <i class="fa-solid fa-magnifying-glass-plus"></i> -->
+                    <!-- <lib-ngx-image-zoom
+                      [thumbImage]="item"
+                      [magnification]="1.5"
+                      [enableScrollZoom]="true"
+                      [enableLens]="false"
+                      [lensWidth]="50"
+                      [lensHeight]="50"
+                      [circularLens]="true"
+                      class="singleProduct__image-zoom d-block w-100"
+                    ></lib-ngx-image-zoom> -->
+                    <!-- <img [src]="item" alt="" /> -->
+                  </div>
+                </ng-container>
+                <!-- <div class="carousel-item" data-bs-interval="2000">
+                <img
+                  class="d-block w-100"
+                  src="{{ singleProduct.images[1] }}"
+                  alt="{{ singleProduct.title }} image"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="{{ singleProduct.images[2] }}"
+                  alt="{{ singleProduct.title }} image"
+                />
+              </div> -->
+              </div>
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="0"
+                  class="active bg-dark"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  class="bg-dark"
+                  type="button"
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  class="bg-dark"
+                  type="button"
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+            </div>
+          </div>
+          <!-- ===================== -->
+          <div class="singleProduct__content ps-0 ps-md-4 col-md-6 col-12 row">
+            <div class="container">
+              <h1 class="singleProduct__head">{{ singleProduct.title }}</h1>
+              <div class="rating my-md-4 my-2">
+                <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+                <progress
+                  class="rating-bg"
+                  value="{{
+                    this.functions.calculateRating(singleProduct.rating)
+                  }}"
+                  max="5"
+                ></progress>
+                <svg><use xlink:href="#fivestars" /></svg>
+              </div>
+              <h3
+                class="product__price d-block my-md-4 my-2 text-success fw-medium"
+              >
+                <del class="text-black-50 fw-light fs-5"
+                  >${{
+                    (
+                      singleProduct.price +
+                      singleProduct.price *
+                        (singleProduct.discountPercentage.toFixed() / 100)
+                    ).toFixed(2)
+                  }}</del
+                >
+  
+                <span> ${{ singleProduct.price.toFixed(2) }} </span>
+              </h3>
+              <p class="text-secondary text-start my-md-4 my-2">
+                {{ singleProduct.description }}
+              </p>
+              <p class="text-secondary opacity-75 text-start my-md-4 my-2">
+                {{ this.functions.inStock(singleProduct.stock) }}
+              </p>
+              <div
+                class="product__purchace py-2 d-flex flex-row align-items-start"
+              >
+                <button
+                  class="btn btn-outline-success my-2 product__addToCart fw-medium me-3 py-3 px-4 text-uppercase"
+                  (click)="this.functions.addToCart(singleProduct, $event)"
+                  type="button"
+                >
+                  add to cart
+                </button>
+              </div>
+              <button
+                class="singleProduct__addWish text-uppercase border-0 bg-transparent mt-3 d-block text-decoration-none text-secondary"
+                (click)="this.functions.addToWish(singleProduct, $event)"
+              >
+                <i
+                  class="fa-solid fa-heart me-1"
+                  style="pointer-events: none"
+                  aria-hidden="true"
+                ></i>
+                add to wish
+              </button>
+              <figure class="border-bottom border-black-50 py-2">
+                <img
+                  class="my-3 w-100"
+                  src="./assets/images/trustseal_499x.gif"
+                  alt="trustseal_iamge "
+                />
+              </figure>
+              <div class="singleProduct__meta">
+                <p class="text-capitalize">
+                  <span class="fw-medium">vender:</span> basel
+                </p>
+                <p class="text-uppercase">
+                  <span class="fw-medium">sku:</span> N/A
+                </p>
+                <p class="text-capitalize">
+                  <span class="fw-medium">share:</span>
+                  <a href="#"
+                    ><i class="fa-brands fa-facebook-f text-secondary px-2"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-brands fa-twitter text-secondary px-2"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-solid fa-envelope text-secondary px-2"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-pinterest text-secondary px-2"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-brands fa-tumblr text-secondary px-2"></i>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ====================================================== -->
+      <section class="information py-4 bg-body-tertiary">
+        <div class="container mx-auto">
+          <ul
+            class="nav nav-pills mb-3 d-flex justify-content-center flex-md-row flex-column"
+            id="pills-tab"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-uppercase active mx-md-4 ms-0 my-2 fs-4 border-bottom rounded-0 p-0"
+                id="pills-description-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-description"
+                type="button"
+                role="tab"
+                aria-controls="pills-description"
+                aria-selected="true"
+              >
+                description
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-uppercase mx-md-4 ms-0 my-2 fs-4 border-bottom rounded-0 p-0"
+                id="pills-reviews-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-reviews"
+                type="button"
+                role="tab"
+                aria-controls="pills-reviews"
+                aria-selected="false"
+              >
+                reviews
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-uppercase mx-md-4 ms-0 my-2 fs-4 border-bottom rounded-0 p-0"
+                id="pills-shipping-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-shipping"
+                type="button"
+                role="tab"
+                aria-controls="pills-shipping"
+                aria-selected="false"
+              >
+                shipping & delivery
+              </button>
+            </li>
+          </ul>
+          <div
+            class="tab-content d-flex justify-content-md-start justify-content-center flex-md-row flex-column my-3 mx-auto"
+            id="pills-tabContent "
+          >
+            <div
+              class="tab-pane fade show active fs-5 text-secondary"
+              id="pills-description"
+              role="tabpanel"
+              aria-labelledby="pills-description-tab"
+              tabindex="0"
+            >
+              <p>{{ singleProduct?.description }}</p>
+              <p>
+                <span class="text-black text-capitalize fw-medium"
+                  >category:
+                </span>
+                {{ singleProduct?.category }}
+              </p>
+              <p>
+                <span class="text-black text-capitalize fw-medium">brand: </span>
+                {{ singleProduct?.brand }}
+              </p>
+            </div>
+            <div
+              class="tab-pane fade fs-5 text-secondary"
+              id="pills-reviews"
+              role="tabpanel"
+              aria-labelledby="pills-reviews-tab"
+              tabindex="0"
+            >
+              Be first to give us your review
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-shipping"
+              role="tabpanel"
+              aria-labelledby="pills-shipping-tab"
+              tabindex="0"
+            >
+              <div class="fs-5 text-secondary row d-flex">
+                <figure class="col-sm-3 col-12">
+                  <img
+                    src="./assets/images/shipping.avif"
+                    class="w-100"
+                    alt="person image"
+                  />
+                </figure>
+                <div class="col-sm-8 col-12">
+                  Vestibulum curae torquent diam diam commodo parturient penatibus
+                  nunc dui adipiscing convallis bulum parturient suspendisse
+                  parturient a.Parturient in parturient scelerisque nibh lectus
+                  quam a natoque adipiscing a vestibulum hendrerit et pharetra
+                  fames.Consequat net <br /><br />
+                  Vestibulum parturient suspendisse parturient a.Parturient in
+                  parturient scelerisque nibh lectus quam a natoque adipiscing a
+                  vestibulum hendrerit et pharetra fames.Consequat netus.
+                  <br />
+                  <br />
+                  Scelerisque adipiscing bibendum sem vestibulum et in a a a purus
+                  lectus faucibus lobortis tincidunt purus lectus nisl class
+                  eros.Condimentum a et ullamcorper dictumst mus et tristique
+                  elementum nam inceptos hac vestibulum amet elit
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ====================================================== -->
+      <!-- ======================RELATED PRODUCTS======================== -->
+      <section class="products container-fluid py-5">
+        <div class="products__text text-center w-50 mx-auto">
+          <h4 class="text-uppercase text-black text-center">related products</h4>
+          <hr class="border-1 opacity-75 border-secondary mx-auto" />
+        </div>
+        <!-- =============== -->
+        <div class="row justify-content-center my-2">
+          <div
+            class="card products__card border-0 col-lg-2 col-md-4 col-sm-6 col-12 my-3 rounded-0"
+            *ngFor="let item of this.global.limited; let i = index"
+          >
+            <figure class="products__front shadow-sm">
+              <a href="./Product/{{ item?.id }}">
+                <img
+                  src="{{ item.images[0] }}"
+                  class="card-img-top rounded-0 front__img d-block"
+                  [alt]="item?.category"
+                />
+                <img
+                  src="{{ item.images[1] }}"
+                  class="card-img-top rounded-0 back__img d-none"
+                  [alt]="item?.category"
+                />
+              </a>
+            </figure>
+            <figcaption
+              class="products__action bg-white position-absolute d-none flex-column p-2"
+            >
+              <i class="fa-regular fa-heart my-2"></i>
+              <i class="fa-solid fa-cart-shopping my-2"></i>
+            </figcaption>
+  
+            <div class="card-body p-0">
+              <a
+                href="./Product/{{ item?.id }}"
+                class="card-title link link-secondary mx-auto text-start fw-medium"
+                >{{ item.title }}</a
+              >
+            </div>
+            <div
+              class="card-footer p-0 mt-4 bg-transparent text-black fw-medium border-0"
+            >
+              <div class="rating">
+                <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+                <progress
+                  class="rating-bg"
+                  value="{{ this.functions.calculateRating(item.rating) }}"
+                  max="5"
+                ></progress>
+                <svg><use xlink:href="#fivestars" /></svg>
+              </div>
+              <span class="product__price d-block opacity-50 mt-2"
+                >${{ item.price.toFixed(2) }}</span
+              >
+              <span class="product__addToCart d-none opacity-50 mt-2"
+                ><i
+                  class="fa-solid fa-cart-shopping fs-6"
+                  style="pointer-events: none"
+                  aria-hidden="true"
+                ></i>
+                Add to cart</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- =============== -->
+      </section>
+      <!-- ======================FOOTER=========================-->
+      <app-footer></app-footer>
+      <!-- ====================================================== -->
+    </ng-template>
+  </main>
+  

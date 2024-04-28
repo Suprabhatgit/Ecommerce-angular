@@ -1,0 +1,108 @@
+<main id="wish">
+    <!-- ================================================ -->
+    <app-navbar></app-navbar>
+    <!-- ================================================ -->
+    <section class="head bg-black m-0 py-3">
+      <div class="container mx-auto text-center">
+        <h1 class="text-capitalize text-white">wishlist</h1>
+        <nav aria-label="breadcrumb bg-black " data-bs-theme="dark">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item">
+              <a class="text-secondary text-decoration-none" href=""
+                ><i class="fa-solid fa-house me-1"></i> Home</a
+              >
+            </li>
+            <li
+              class="breadcrumb-item text-capitalize active"
+              aria-current="page"
+            >
+              wish
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+    <!-- ================================================ -->
+    <section class="emptyWish" *ngIf="!empty; else showWish">
+      <div>
+        <h2 class="text-uppercase py-5 text-center">
+          your wishlist is empty go to
+          <a class="text-success" href="./collection/all">products</a>
+        </h2>
+      </div>
+    </section>
+    <!-- ========================= -->
+    <ng-template #showWish>
+      <section class="wish-table">
+        <div class="container">
+          <table class="table table-striped my-sm-3">
+            <thead>
+              <tr class="w-100">
+                <th class="col th1"></th>
+                <th class="col th2"></th>
+                <th class="col th3 text-uppercase">product</th>
+                <th class="col th4 text-uppercase">price</th>
+  
+                <th class="col th6 text-uppercase">actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="wish-products"
+                *ngFor="let item of this.global.wish; let i = index"
+              >
+                <th class="" scope="row">
+                  <button
+                    class="border-0 bg-transparent"
+                    (click)="deleteMeal($event)"
+                  >
+                    <i class="fa-solid fa-circle-xmark text-black fs-4"></i>
+                  </button>
+                </th>
+                <td>
+                  <a href="./Product/{{ item?.id }}">
+                    <img
+                      class="wish-img"
+                      [src]="item.images[0]"
+                      alt="product image"
+                    />
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="./Product/{{ item?.id }}"
+                    class="text-decoration-none text-black"
+                    >{{ item.title }}
+                  </a>
+                  <br />
+                  <a
+                    href="./collection/{{ item.category }}"
+                    class="text-decoration-none text-secondary"
+                    >{{ item.category }}</a
+                  >
+                </td>
+                <td>${{ item.price.toFixed(2) }}</td>
+  
+                <td class="addToCart-button">
+                  <button
+                    type="button"
+                    class="btn btn-outline-success product__addToCart mt-2"
+                    (click)="this.functions.addToCart(item, $event)"
+                  >
+                    <i
+                      class="fa-solid fa-cart-shopping fs-6"
+                      style="pointer-events: none"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </ng-template>
+    <!-- ================================================ -->
+    <app-footer></app-footer>
+  </main>
+  

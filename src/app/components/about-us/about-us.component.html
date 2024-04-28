@@ -1,0 +1,101 @@
+<main id="about">
+    <div
+      class="col-3 py-5 my-5 mx-auto"
+      *ngIf="this.global.loadingFlag; else ShowGallery"
+    >
+      <img src="assets/images/load.gif" class="w-100 my-5 py-5" />
+    </div>
+    <ng-template #ShowGallery>
+      <!-- ================================================= -->
+      <app-navbar></app-navbar>
+      <!-- ==================================================== -->
+      <section class="about-us row m-0">
+        <div
+          class="about-image01 col-md-6 col-12 m-0 p-0"
+          data-aos="fade-right"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="200"
+          data-aos-duration="1500"
+        ></div>
+        <div
+          class="col-md-6 col-12 bg-light"
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="200"
+          data-aos-duration="1500"
+        >
+          <div class="container py-sm-5 px-sm-4 p-2">
+            <div class="about-head">
+              <h2 class="about-01 text-white">01</h2>
+              <h4 class="about-head01 text-uppercase">who we are</h4>
+            </div>
+            <div class="about-text">
+              <p class="text-secondary fw-light">
+                At Brand Studio, it’s our firm belief that every individual has the right to look good, feel confident and express themselves through the language of fashion. We take this so seriously, that we have made it our mission to “Create a Better Everyday Lifestyle” for our customers. We carefully listen to & deeply understand customers’ needs, wants and desires & create accessible fashion brands focused on giving you the trend that you are looking for, in the most efficient and shortest possible time
+              </p>
+              <p class="text-secondary fw-light mt-2">
+                Brand Studio is one of India’s fastest growing tech Enabled house of Fashion Brands. Manufactured In India with good quality raw material, each product goes through quality checks before it is ready to ship
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ==================================================== -->
+      <section class="team my-5">
+        <div class="container">
+          <div class="team__head text-center">
+            <h2 class="team__main-head text-uppercase">meet our team</h2>
+            <h4 class="team__sec-head text-uppercase text-success">
+              the right people for your project
+            </h4>
+            <div class="container team__members row">
+              <figure
+                class="col-md-4 col col-12"
+                *ngFor="let item of this.global.users.slice(0, 3)"
+              >
+                <img [src]="item?.image" class="img-fluid" alt="person image" />
+                <figcaption class="mt-4">
+                  <h6>{{ item?.firstName }} {{ item?.lastName }}</h6>
+                  <p class="text-success">{{ item?.company.title }}</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ==================================================== -->
+      <section class="about-work row m-0">
+        <div
+          class="col-md-6 col-12 bg-light float-end"
+          data-aos="fade-right"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="200"
+          data-aos-duration="1500"
+        >
+          <div class="container py-sm-5 px-sm-4 p-2">
+            <div class="about-head">
+              <h2 class="about-01 text-white">02</h2>
+              <h4 class="about-head01 text-uppercase">what we do</h4>
+            </div>
+            <div class="about-text">
+              <p class="text-secondary fw-light">
+                The brand draws on global markers of power, derived from history and mythology. With each collection, the brand delves into the abstract concept of power, exploring it through the lenses of past, present and future, driving its audience to do the same. The brand’s contemporary design language speaks to a global audience while drawing from Indian sensibilities of craft, handwork and opulence.
+              </p>
+              <p class="text-secondary fw-light mt-2">
+                we curate a select range of products designed by culturally rich brands founded by thought leaders & story-tellers. We encourage slow fashion - It's about buying pieces that are an expression of your personality & repeatedly wearing 'em, making 'em feel like second skin over time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="about-image02 col-md-6 col-12 m-0 p-0 float-start"
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="200"
+          data-aos-duration="1500"
+        ></div>
+      </section>
+      <!-- ==================================================== -->
+      <app-footer></app-footer>
+    </ng-template>
+  </main>

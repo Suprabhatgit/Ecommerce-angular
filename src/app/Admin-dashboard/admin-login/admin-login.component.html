@@ -1,0 +1,155 @@
+<main id="login" class="collection-products">
+  <!-- ======================LOADING IMG====================== -->
+
+  <!-- =========================ALL PRODUCT HEADER======================== -->
+  <!-- NAVBAR================================== -->
+  <section class="login-navbar allProduct-firstSection">
+    <app-navbar class="login-navbar allProduct-navbar w-100"></app-navbar>
+    <!-- HEADER TEXT=========================== -->
+    <article class="login-header d-flex flex-column align-items-center">
+      <!-- HEADER TEXT=========================== -->
+      <div class="container allProduct__container mx-auto">
+        <nav class="allProduct__nav-head text-center mt-5">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item allProduct__nav-list position-relative">
+              <a class="text-decoration-none text-dark text-uppercase" href=""
+                >Home</a
+              >
+            </li>
+            <li class="mx-2 fw-bolder text-success allProduct__nav-list">></li>
+            <li
+              class="breadcrumb-item text-uppercase allProduct__nav-list position-relative"
+              aria-current="page"
+            >
+              <a
+                class="text-decoration-none text-dark text-uppercase"
+                href="./collection/all"
+                >Account</a
+              >
+            </li>
+          </ol>
+        </nav>
+        <!-- ================ -->
+        <h1
+          class="allProduct__main-head fw-medium text-uppercase text-center text-success"
+        >
+          Account
+        </h1>
+        <nav aria-label="breadcrumb mx-auto text-center">
+          <ol class="breadcrumb mx-auto justify-content-center">
+            <li class="breadcrumb-item">
+              <a
+                class="text-capitalize text-black text-decoration-none fs-6"
+                href="./signUp"
+                >Register</a
+              >
+            </li>
+            <li class="breadcrumb-item">
+              <a
+                class="text-capitalize text-black text-decoration-none fs-6"
+                href="./login"
+                >user login</a
+              >
+            </li>
+            <li class="breadcrumb-item">
+              <a
+                class="active text-capitalize text-success text-decoration-none fs-6"
+                href="./adminLogin"
+                >admin login</a
+              >
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- ======================================= -->
+    </article>
+  </section>
+  <!-- ======================FORM========================== -->
+  <section class="login-form mb-5">
+    <div
+      class="login__alert-error mx-auto text-capitalize alert alert-danger"
+      *ngIf="msgError"
+    >
+      {{ msgError }}
+    </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="handleSubmit(loginForm)">
+      <div class="login-container container mb-5">
+        <div class="form-floating login__name mb-3">
+          <input
+            [(ngModel)]="model.email"
+            [ngModelOptions]="{ standalone: true }"
+            name="name"
+            #name="ngModel"
+            required
+            name
+            minlength="5"
+            type="text"
+            class="form-control rounded-0 border-0 border-bottom"
+            id="floatingInput"
+            placeholder="name"
+            value="kminchelle"
+          />
+          <label
+            for="floatingInput"
+            class="text-capitalize fw-medium text-success"
+            >Name *</label
+          >
+          <!-- ===========ALERT ERROR============ -->
+          <div
+            class="alert alert-danger"
+            *ngIf="loginForm.submitted && name.invalid"
+          >
+            <div *ngIf="name.errors?.['required']">Email is required</div>
+            <div *ngIf="name.errors?.['name']">Invalid name</div>
+            <div *ngIf="name.errors?.['minlength']">min length = 5</div>
+          </div>
+        </div>
+        <!-- ================================================== -->
+        <div class="form-floating login__password">
+          <input
+            [(ngModel)]="model.password"
+            [ngModelOptions]="{ standalone: true }"
+            name="password"
+            required
+            #password="ngModel"
+            type="password"
+            class="form-control rounded-0 border-0 border-bottom"
+            id="floatingPassword"
+            placeholder="Password"
+            value="0lelplR"
+          />
+
+          <label
+            class="text-capitalize fw-medium text-success"
+            for="floatingPassword"
+            >Password *</label
+          >
+          <!-- ===========ALERT ERROR============ -->
+          <div
+            class="alert alert-danger"
+            *ngIf="password.invalid && (password.dirty || loginForm.submitted)"
+          >
+            <div *ngIf="password.errors?.['required']">
+              password is required
+            </div>
+            <div *ngIf="password.errors?.['pattern']">Match the pattern</div>
+          </div>
+        </div>
+        <!-- ================================================== -->
+        <div class="d-flex justify-content-center login__submit">
+          <button
+            type="submit"
+            class="btn btn-outline-success text-capitalize px-5 my-3"
+          >
+            login
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
+  <!-- ======================FOOTER=========================-->
+  <app-footer></app-footer>
+  <!-- ============================================================ -->
+</main>

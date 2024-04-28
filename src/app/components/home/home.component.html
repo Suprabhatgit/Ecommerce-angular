@@ -1,0 +1,821 @@
+<main id="homePage">
+    <!-- ======================LOADING IMG====================== -->
+    <div
+      class="col-3 py-5 my-5 mx-auto"
+      *ngIf="this.global.loadingFlag; else ShowGallery"
+    >
+      <img src="assets/images/load.gif" class="w-100 my-5 py-5" />
+    </div>
+    <ng-template #ShowGallery>
+      <!-- ======================Navbar====================== -->
+      <app-navbar class="shadow-sm home-navbar" id=""></app-navbar>
+      <!-- ======================CAROUSEL====================== -->
+      <section id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+          <a
+            class="carousel-item home-carousel__image active p-0 position-relative text-decoration-none"
+            routerLink="./collection/womens-dresses"
+          >
+            <div
+              class="home-curousel__text home-curousel__text1 mx-auto position-absolute top-50 start-50 translate-middle"
+            >
+              <div data-aos="fade-up" data-aos-duration="2000">
+                <h2 class="text-uppercase text-light">new arrival</h2>
+                <h6 class="text-capitalize text-light">hot trending</h6>
+  
+                <a routerLink="./collection/womens-dresses">
+                  <button
+                    type="button  "
+                    class="curousel__shop-now btn btn-success rounded-0 bg-success px-3 py-2 text-capitalize hvr-rectangle-out"
+                  >
+                    shop now
+                  </button></a
+                >
+              </div>
+            </div>
+            <img
+              src="https://almostgods.com/wp-content/uploads/2024/04/destop-web-banner-scaled.webp"
+              alt="new arrive image"
+              class="d-block w-100"
+            />
+          </a>
+          <a
+            class="carousel-item home-carousel__image p-0 position-relative text-decoration-none"
+            routerLink="./collection/mens-shoes"
+          >
+            <div
+              class="home-curousel__text home-curousel__text2 mx-auto position-absolute top-50 start-50 translate-middle"
+            >
+              <h2 class="text-uppercase text-light">new style</h2>
+              <h6 class="text-capitalize text-light">
+                boof's collection for men
+              </h6>
+              <a routerLink="./collection/mens-shoes">
+                <button
+                  type="button  "
+                  data-aos="fade-up"
+                  data-aos-duration="1800"
+                  class="curousel__shop-now btn btn-success rounded-0 bg-success px-sm-3 py-sm-2 text-capitalize hvr-rectangle-out"
+                >
+                  shop now
+                </button></a
+              >
+            </div>
+            <img
+              src="./assets/images/home-curoseul234.png"
+              alt="new arrive image"
+              class="d-block w-100"
+            />
+          </a>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </section>
+      <!-- ======================CATEGORIES====================== -->
+      <section class="categories shadow-sm py-5">
+        <div class="container categories__container">
+          <div
+            class="categories__text text-center w-50 mx-auto"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <h6 class="text-secondary text-break opacity-75 text-uppercase">
+              make the hard way
+            </h6>
+            <h4 class="text-uppercase text-black text-center">
+              featured categories
+            </h4>
+            <hr class="border-1 opacity-75 border-secondary mx-auto" />
+            <p class="text-secondary">
+              ALMOST GODS is a powerful eCommerce website, built with Angular and .NET8 API. Visit our
+              shop page to see all main features
+            </p>
+          </div>
+          <div
+            class="categories__images row mx-auto my-4 justify-content-between align-content-between d-flex"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <figure
+              class="categories__img col-md-5 col-12 position-relative ps-md-0"
+            >
+              <a class="text-decoration-none" href="./collection/womens-bags">
+                <div class="categories__bags overflow-hidden">
+                  <img
+                    class="w-100"
+                    [src]="this.global.womanBag[3]?.images[3]"
+                    alt="woman bag image"
+                  />
+                </div>
+              </a>
+              <figcaption class="position-absolute">
+                <a
+                  href="./collection/womens-bags"
+                  class="categories__button text-decoration-none text-capitalize bg-white text-black px-4 py-2 fs-6"
+                  >bag</a
+                >
+              </figcaption>
+            </figure>
+            <div
+              class="categories__img col-md-7 col-12 row-md align-content-md-between justify-content-md-center"
+            >
+              <div
+                class="categories__img-row-1 d-flex row justify-content-md-between justify-content-center"
+              >
+                <figure
+                  class="categories__shoes overflow-hidden col-md-6 col-12 position-relative"
+                >
+                  <a class="text-decoration-none" href="./collection/mens-shoes">
+                    <div class="overflow-hidden">
+                      <img
+                        class="w-100"
+                        [src]="this.global.manShoes[2]?.images[4]"
+                        alt="men-shoes image"
+                      />
+                    </div>
+                  </a>
+                  <figcaption class="position-absolute">
+                    <a
+                      href="./collection/mens-shoes"
+                      class="categories__button text-decoration-none text-capitalize bg-white text-black"
+                      >footwear</a
+                    >
+                  </figcaption>
+                </figure>
+                <figure
+                  class="categories__sunglasses overflow-hidden col-md-6 col-12 position-relative mt-md-0 mt-3"
+                >
+                  <a class="text-decoration-none" href="./collection/sunglasses">
+                    <div class="overflow-hidden">
+                      <img
+                        class="w-100"
+                        [src]="this.global.sunglasses[0]?.images[2]"
+                        alt="sunglasses image"
+                      />
+                    </div>
+                  </a>
+                  <figcaption class="position-absolute">
+                    <a
+                      href="./collection/sunglasses"
+                      class="categories__button text-decoration-none text-capitalize bg-white text-black"
+                      >sunglasses</a
+                    >
+                  </figcaption>
+                </figure>
+              </div>
+  
+              <div
+                class="categories__img-row2 d-flex row justify-content-md-between justify-content-center"
+              >
+                <figure
+                  class="categories__watches overflow-hidden col-md-6 col-12 position-relative mt-md-0 mt-3"
+                >
+                  <a
+                    class="text-decoration-none"
+                    href="./collection/mens-watches"
+                  >
+                    <div class="overflow-hidden">
+                      <img
+                        class="w-100"
+                        [src]="this.global.watches[2]?.thumbnail"
+                        alt="watches image"
+                      />
+                    </div>
+                  </a>
+                  <figcaption class="position-absolute">
+                    <a
+                      href="./collection/mens-watches"
+                      class="categories__button text-decoration-none text-capitalize bg-white text-black"
+                      >watches</a
+                    >
+                  </figcaption>
+                </figure>
+                <figure
+                  class="categories__menShirts overflow-hidden col-md-6 col-12 position-relative"
+                >
+                  <a class="text-decoration-none" href="./collection/mens-shirts">
+                    <div class="overflow-hidden">
+                      <img
+                        class="w-100"
+                        [src]="this.global.menShirts[3]?.thumbnail"
+                        alt="men-shirts image"
+                      />
+                    </div>
+                  </a>
+                  <figcaption class="position-absolute">
+                    <a
+                      href="./collection/mens-shirts"
+                      class="categories__button text-decoration-none text-capitalize bg-white text-black"
+                      >men</a
+                    >
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <article class="py-3 w-100 bg-black mx-auto">
+            <p class="text-uppercase text-center text-white p-0 m-0">
+              up to 70% off the entire store!. made with love by
+              <a class="text-white link-offset-2" href="">Suprabhat SAMANTA</a>
+            </p>
+          </article>
+        </div>
+      </section>
+      <!-- ======================JOIN============================ -->
+      <article class="join py-5">
+        <div
+          class="join__content container py-5 mx-auto text-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <h4 class="join__logo text-white text-center">
+            Connect to ALMOST GODS
+          </h4>
+          <h2 class="join__head text-white text-center my-4 text-uppercase">
+            join our newsletter
+          </h2>
+          <p class="join__text text-white text-center w-50 mx-auto px-5">
+            Hey you, sign up it only takes a second to be the first to find out
+            about our latest news and promotions.
+          </p>
+          <button type="button" class="btn btn-light rounded-0">
+            <a
+              class="text-uppercase text-decoration-none text-black"
+              href="./login"
+              >sign up</a
+            >
+          </button>
+        </div>
+      </article>
+      <!-- ======================PRODUCTS======================== -->
+      <section class="products container-fluid py-5">
+        <div class="container">
+          <div class="products__text text-center w-50 mx-auto">
+            <h6
+              class="text-secondary text-break opacity-75 text-uppercase flip-left"
+            >
+              make the hard way
+            </h6>
+            <h4 class="text-uppercase text-black text-center">
+              featured products
+            </h4>
+            <hr class="border-1 opacity-75 border-secondary mx-auto" />
+          </div>
+          <!-- =============== -->
+          <div class="row justify-content-center my-2">
+            <div
+              class="card products__card border-0 col-lg-3 col-sm-6 col-8 my-3 rounded-0 mx-auto"
+              *ngFor="let item of this.global?.menShirts; let i = index"
+            >
+              <figure class="products_card shadow-sm">
+                <a href="./Product/{{ item.id }}" class="position-relative">
+                  <div class="products__front">
+                    <img
+                      [src]="item?.images[0]"
+                      class="card-img-top img-thumbnail rounded-0 front__img d-block"
+                      alt="product image"
+                    />
+                    <img
+                      [src]="item?.images[1]"
+                      class="card-img-top img-thumbnail rounded-0 back__img d-none"
+                      alt="product image"
+                    />
+                  </div>
+                  <div
+                    class="product__onSale-circle d-block bg-success position-absolute z-3"
+                  >
+                    <span
+                      class="text-center text-light position-absolute top-50 start-50 translate-middle fw-bold"
+                      >{{ item.discountPercentage.toFixed() }}%</span
+                    >
+                  </div>
+                </a>
+              </figure>
+  
+              <figcaption
+                class="products__action bg-white position-absolute d-none flex-column p-2"
+              >
+                <button
+                  class="btn btn-outline-success my-2 product__addToWish w-100 border-0"
+                  type="button"
+                  (click)="this.functions.addToWish(item, $event)"
+                  title="login to use wish"
+                >
+                  <i
+                    class="fa-regular fa-heart"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <button
+                  class="btn btn-outline-success my-2 product__addToCart w-100 border-0"
+                  type="button"
+                  (click)="this.functions.addToCart(item, $event)"
+                >
+                  <i
+                    class="fa-solid fa-cart-shopping"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </figcaption>
+              <div class="card-body p-0">
+                <a
+                  href="./Product/{{ item.id }}"
+                  class="card-title link link-secondary mx-auto text-start fw-medium"
+                  >{{ item.title }}</a
+                >
+              </div>
+              <div
+                class="card-footer p-0 mt-4 bg-transparent text-black fw-medium border-0"
+              >
+                <div class="rating">
+                  <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+                  <progress
+                    class="rating-bg"
+                    value="{{ this.functions.calculateRating(item.rating) }}"
+                    max="5"
+                  ></progress>
+                  <svg><use xlink:href="#fivestars" /></svg>
+                </div>
+                <div class="product__price d-block text-dark-50 fw-medium mt-2">
+                  <del class="text-black-50"
+                    >${{
+                      (
+                        item.price +
+                        item.price * (item.discountPercentage.toFixed() / 100)
+                      ).toFixed(2)
+                    }}</del
+                  >
+                  ${{ item.price.toFixed(2) }}
+                </div>
+              </div>
+              <button
+                type="button"
+                class="btn btn-outline-success product__addToCart d-none mt-2"
+                (click)="this.functions.addToCart(item, $event)"
+              >
+                <i
+                  class="fa-solid fa-cart-shopping fs-6"
+                  style="pointer-events: none"
+                  aria-hidden="true"
+                ></i>
+                Add to cart
+              </button>
+            </div>
+          </div>
+          <!-- =============== -->
+          <div class="row justify-content-center my-2">
+            <div
+              class="card products__card border-0 col-lg-3 col-sm-6 col-8 mx-auto my-3 rounded-0"
+              *ngFor="let item of this.global?.sunglasses; let i = index"
+            >
+              <figure class="products_card shadow-sm">
+                <a href="./Product/{{ item?.id }}" class="position-relative">
+                  <div class="products__front">
+                    <img
+                      [src]="item?.images[0]"
+                      class="card-img-top img-thumbnail rounded-0 front__img d-block"
+                      alt="product image"
+                    />
+                    <img
+                      [src]="item?.images[2]"
+                      class="card-img-top img-thumbnail rounded-0 back__img d-none"
+                      alt="product image"
+                    />
+                  </div>
+                  <div
+                    class="product__onSale-circle d-block bg-success position-absolute z-3"
+                  >
+                    <span
+                      class="text-center text-light position-absolute top-50 start-50 translate-middle fw-bold"
+                      >{{ item.discountPercentage.toFixed() }}%</span
+                    >
+                  </div>
+                </a>
+              </figure>
+              <figcaption
+                class="products__action bg-white position-absolute d-none flex-column p-2"
+              >
+                <button
+                  class="btn btn-outline-success my-2 product__addToWish w-100 border-0"
+                  type="button"
+                  (click)="this.functions.addToWish(item, $event)"
+                  title="login to use wish"
+                >
+                  <i
+                    class="fa-regular fa-heart"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <button
+                  class="btn btn-outline-success my-2 product__addToCart w-100 border-0"
+                  type="button"
+                  (click)="this.functions.addToCart(item, $event)"
+                >
+                  <i
+                    class="fa-solid fa-cart-shopping"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </figcaption>
+              <div class="card-body p-0">
+                <a
+                  href="./Product/{{ item?.id }}"
+                  class="card-title link link-secondary mx-auto text-start fw-medium"
+                  >{{ item?.title }}</a
+                >
+              </div>
+              <div
+                class="card-footer p-0 mt-4 bg-transparent text-black fw-medium border-0"
+              >
+                <div class="rating">
+                  <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+                  <progress
+                    class="rating-bg"
+                    value="{{ this.functions.calculateRating(item.rating) }}"
+                    max="5"
+                  ></progress>
+                  <svg><use href="#fivestars" /></svg>
+                </div>
+                <div class="product__price d-block text-secondary fw-medium mt-2">
+                  <del class="text-black-50"
+                    >${{
+                      (
+                        item?.price +
+                        item?.price * (item.discountPercentage.toFixed() / 100)
+                      ).toFixed(2)
+                    }}</del
+                  >
+                  ${{ item.price.toFixed(2) }}
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-outline-success product__addToCart d-none mt-2"
+                  (click)="this.functions.addToCart(item, $event)"
+                >
+                  <i
+                    class="fa-solid fa-cart-shopping fs-6"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- =============== -->
+          <div class="row products__cards justify-content-center my-2">
+            <div
+              class="card products__card border-0 col-lg-3 col-sm-6 col-8 mx-auto my-3 rounded-0"
+              *ngFor="let item of this.global?.womanBag; let i = index"
+            >
+              <figure class="products_card shadow-sm">
+                <a href="./Product/{{ item?.id }}" class="position-relative">
+                  <div class="products__front">
+                    <img
+                      [src]="item?.images[0]"
+                      class="card-img-top img-thumbnail rounded-0 front__img d-block"
+                      alt="product image"
+                    />
+                    <img
+                      [src]="item?.images[1]"
+                      class="card-img-top img-thumbnail rounded-0 back__img d-none"
+                      alt="product image"
+                    />
+                  </div>
+                  <div
+                    class="product__onSale-circle d-block bg-success position-absolute z-3"
+                  >
+                    <span
+                      class="text-center text-light position-absolute top-50 start-50 translate-middle fw-bold"
+                      >{{ item.discountPercentage.toFixed() }}%</span
+                    >
+                  </div>
+                </a>
+              </figure>
+              <figcaption
+                class="products__action bg-white position-absolute d-none flex-column p-2"
+              >
+                <button
+                  class="btn btn-outline-success my-2 product__addToWish w-100 border-0"
+                  type="button"
+                  (click)="this.functions.addToWish(item, $event)"
+                  title="login to use wish"
+                >
+                  <i
+                    class="fa-regular fa-heart"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <button
+                  class="btn btn-outline-success my-2 product__addToCart w-100 border-0"
+                  type="button"
+                  (click)="this.functions.addToCart(item, $event)"
+                >
+                  <i
+                    class="fa-solid fa-cart-shopping"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </figcaption>
+              <div class="card-body p-0">
+                <a
+                  href="./Product/{{ item?.id }}"
+                  class="card-title link link-secondary mx-auto text-start fw-medium"
+                  >{{ item?.title }}</a
+                >
+              </div>
+              <div
+                class="card-footer p-0 mt-4 bg-transparent text-black fw-medium border-0"
+              >
+                <div class="rating">
+                  <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+                  <progress
+                    class="rating-bg"
+                    value="{{ this.functions.calculateRating(item?.rating) }}"
+                    max="5"
+                  ></progress>
+                  <svg><use xlink:href="#fivestars" /></svg>
+                </div>
+                <div class="product__price d-block text-secondary fw-medium mt-2">
+                  <del class="text-black-50"
+                    >${{
+                      (
+                        item.price +
+                        item.price * (item.discountPercentage.toFixed() / 100)
+                      ).toFixed(2)
+                    }}</del
+                  >
+                  ${{ item?.price.toFixed(2) }}
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-outline-success product__addToCart d-none mt-2"
+                  (click)="this.functions.addToCart(item, $event)"
+                >
+                  <i
+                    class="fa-solid fa-cart-shopping fs-6"
+                    style="pointer-events: none"
+                    aria-hidden="true"
+                  ></i>
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- =============== -->
+        </div>
+      </section>
+      <!-- ======================SHOP============================ -->
+      <section class="shop py-5">
+        <div
+          class="shop__content container-sm border border-5 border-dark-50 mx-auto py-5 bg-white row"
+        >
+          <div
+            class="shop__purchase container-sm mx-auto py-3 px-sm-5 text-center col-md-6 col-12"
+          >
+            <figure>
+              <img
+                class="d-block w-100"
+                src="https://almostgods.com/wp-content/uploads/2021/10/cropped-ag-logo_900x600.png"
+                alt="logo of site"
+              />
+            </figure>
+            <h6 class="text-uppercase text-secondary">
+              minimalistic ajax e-commerce theme
+            </h6>
+            <p class="text-secondary">
+              Hi, I am Suprabhat Samanta. I built this eCommerce site using angular and .NET8. It is a part of my internship project. Thank you
+            </p>
+            <button
+              type="button"
+              class="shop__purchase-basel btn btn-dark rounded-0"
+            >
+              <a
+                class="text-uppercase text-decoration-none text-white"
+                href="./collection/all"
+                >purchase ALMOST GODS</a
+              >
+            </button>
+          </div>
+          <div
+            class="shop__about container-sm col-md-6 px-2 py-3 mt-3 mx-auto text-center d-md-block d-none"
+          >
+            <h3 class="text-black text-center">About the shop</h3>
+            <h5 class="text-center my-3">
+              <i class="fa-regular fa-heart fs-1"></i>
+            </h5>
+            <p class="text-secondary text-center">
+              <span class="text-black fw-bold">ALMOST GODS</span>
+              – The brand’s contemporary design language speaks to a global audience while drawing from Indian sensibilities of craft, handwork and opulence.
+            </p>
+            <button
+              type="button"
+              class="shop__shop-now btn btn-outline-secondary rounded-0 text-center mx-auto"
+            >
+              <a
+                class="text-uppercase text-decoration-none text-black"
+                href="./collection/all"
+                >shop now</a
+              >
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- ======================REVIEW========================== -->
+      <section class="review py-5">
+        <div class="container">
+          <div class="products__text text-center w-50 mx-auto">
+            <h4 class="text-uppercase text-black text-center">
+              WHAT THEY SAY ABOUT US
+            </h4>
+            <hr class="border-1 opacity-75 border-secondary mx-auto" />
+          </div>
+          <!-- =============== -->
+          <div
+            class="container-sm container-fluid mx-auto row justify-content-center"
+          >
+            <div
+              id="carouselExampleIndicators"
+              class="review__carousel container-sm container-fluid carousel slide col-md-8 col-12"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active bg-dark"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                  class="bg-dark"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                  class="bg-dark"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <figure class="justify-content-center">
+                    <img
+                      [src]="this.global.users[0]?.image"
+                      class="img-fluid d-block mx-auto rounded-circle"
+                      alt="person image"
+                    />
+                    <figcaption class="review__text px-sm-5 p-0 my-5">
+                      <p class="text-center text-secondary">
+                        Fringilla iaculis ante torquent a diam a vestibulum diam
+                        nisi augue dictumst parturient a vestibulum tortor viverra
+                        inceptos adipiscing nec a ullamcorper.Ullamcorper aliquam
+                        rutrum.
+                      </p>
+                      <p class="text-center text-black">
+                        {{ this.global.users[0]?.firstName }}
+                        {{ this.global.users[0]?.lastName }}
+                        <span class="text-secondary"
+                          >- {{ this.global.users[0]?.company.title }}
+                        </span>
+                      </p>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="carousel-item"
+                  *ngFor="let item of this.global.users?.slice(3, 5)"
+                >
+                  <figure class="justify-content-center">
+                    <img
+                      [src]="item?.image"
+                      class="img-fluid d-block mx-auto rounded-circle"
+                      alt="person image"
+                    />
+                    <figcaption class="review__text px-sm-5 px-0 my-5">
+                      <p class="text-center text-secondary">
+                        Fringilla iaculis ante torquent a diam a vestibulum diam
+                        nisi augue dictumst parturient a vestibulum tortor viverra
+                        inceptos adipiscing nec a ullamcorper.Ullamcorper aliquam
+                        rutrum.
+                      </p>
+                      <p class="text-center text-black">
+                        {{ item?.firstName }}
+                        {{ item?.lastName }}
+                        <span class="text-secondary"
+                          >- {{ item?.company.title }}
+                        </span>
+                      </p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev d-sm-inline d-none"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon bg-black"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next d-sm-inline d-none"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon bg-black"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <!-- =============== -->
+        </div>
+      </section>
+      <!-- ======================PARTNERS=========================-->
+      <article class="partners bg-body-secondary py-2">
+        <div
+          class="container align-items-center row justify-content-center mx-auto py-2"
+        >
+          <h3
+            class="col-md-2 col-12 text-center justify-content-center border-end border-2 text-uppercase fw-medium fs-5 lh-lg text-secondary m-md-0 mt-2"
+          >
+            our partners
+          </h3>
+          <figure class="col-md-2 col-6 m-md-0 mt-2">
+            <img
+              class="w-100"
+              src="./assets/images/logo-1_250x.png"
+              alt="logo image"
+            />
+          </figure>
+          <figure class="col-md-2 col-6 m-md-0 mt-2">
+            <img
+              class="w-100"
+              src="./assets/images/logo-2_250x.png"
+              alt="logo image"
+            />
+          </figure>
+          <figure class="col-md-2 col-6 m-md-0 mt-2">
+            <img
+              class="w-100"
+              src="./assets/images/logo-3_250x.png"
+              alt="logo image"
+            />
+          </figure>
+          <figure class="col-md-2 col-6 m-md-0 mt-2">
+            <img
+              class="w-100"
+              src="./assets/images/logo-4_250x.png"
+              alt="logo image"
+            />
+          </figure>
+          <figure class="col-md-2 col-6 m-md-0 mt-2">
+            <img
+              class="w-100"
+              src="./assets/images/logo-6_250x.png"
+              alt="logo image"
+            />
+          </figure>
+        </div>
+      </article>
+      <!-- ======================FOOTER=========================-->
+      <app-footer></app-footer>
+      <!-- ================================================================-->
+    </ng-template>
+  </main>
+  

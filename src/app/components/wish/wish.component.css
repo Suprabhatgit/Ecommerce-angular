@@ -1,0 +1,31 @@
+.wish-img {
+    max-width: 80px;
+  }
+  th,
+  td {
+    vertical-align: middle;
+  }
+  h1 {
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+    letter-spacing: 5px;
+  }
+  @media (max-width: 576px) {
+    thead {
+      display: none;
+    }
+    table {
+      margin-top: 15px;
+    }
+    .wish-products {
+      /* margin-top: 15px; */
+      display: flex !important;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .addToCart-button {
+      border-bottom: 1px solid #000;
+    }
+  }
+  

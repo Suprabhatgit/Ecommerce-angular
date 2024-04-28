@@ -1,0 +1,41 @@
+.about-image01 {
+    background: url(../../../assets/images/about-us.jpg) no-repeat top center /
+      cover;
+    min-height: 500px;
+  }
+  .about-image02 {
+    background: url(../../../assets/images/wedo.webp) no-repeat top center /
+      cover;
+    min-height: 500px;
+  }
+  .about-01,
+  .about-text,
+  .team__head {
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+  }
+  .team__main-head {
+    font-size: 44px;
+  }
+  .team__sec-head {
+    font-size: 22px;
+  }
+  .about-01 {
+    font-size: 90px;
+    line-height: 90px;
+    font-weight: 700;
+  }
+  .about-text {
+    font-size: 20px;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+  }
+  .about-head01 {
+    font-weight: 400 !important;
+    font-family: Dosis;
+    font-size: 34px;
+    line-height: 34px;
+    margin: -40px 0 34px 0;
+  }
+  .bg-light {
+    background-color: rgb(213 213 213 / 0.64) !important;
+  }

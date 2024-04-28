@@ -1,0 +1,329 @@
+<!-- signup.component.html -->
+
+<!-- <div class="container">
+    <h2>Sign Up</h2>
+    <form #signupForm="ngForm" (ngSubmit)="handleSubmit(signupForm)">
+      <div class="form-group">
+        <label for="userName">Username</label>
+        <input type="text" id="userName" name="userName" [(ngModel)]="model.userName" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" [(ngModel)]="model.fullName" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="model.email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="model.password" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="model.phoneNumber" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" [(ngModel)]="model.age" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" id="gender" name="gender" [(ngModel)]="model.gender" class="form-control" required>
+        
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <div *ngIf="msgError" class="alert alert-danger mt-3">{{ msgError }}</div>
+    </form>
+  </div> -->
+
+
+  <!-- <select id="gender" name="gender" [(ngModel)]="model.gender" class="form-control" required>
+          <option value="male">M</option>
+          <option value="female">F</option>
+          <option value="other">Other</option>
+        </select> -->
+
+
+
+
+<!-- ===============================================NEW WORK ========================================== -->
+
+<main id="login" class="collection-products">
+    <!-- ======================LOADING IMG====================== -->
+  
+    <!-- =========================ALL PRODUCT HEADER======================== -->
+    <!-- NAVBAR================================== -->
+    <section class="login-navbar allProduct-firstSection">
+      <app-navbar class="login-navbar allProduct-navbar w-100"></app-navbar>
+      <!-- HEADER TEXT=========================== -->
+      <article class="login-header d-flex flex-column align-items-center">
+        <!-- HEADER TEXT=========================== -->
+        <div class="container allProduct__container mx-auto">
+          <nav class="allProduct__nav-head text-center mt-5">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item allProduct__nav-list position-relative">
+                <a class="text-decoration-none text-dark text-uppercase" href=""
+                  >Home</a
+                >
+              </li>
+              <li class="mx-2 fw-bolder text-success allProduct__nav-list">></li>
+              <li
+                class="breadcrumb-item text-uppercase allProduct__nav-list position-relative"
+                aria-current="page"
+              >
+                <a
+                  class="text-decoration-none text-dark text-uppercase"
+                  href="./collection/all"
+                  >Account</a
+                >
+              </li>
+            </ol>
+          </nav>
+          <!-- ================ -->
+          <h1
+            class="allProduct__main-head fw-medium text-uppercase text-center text-success"
+          >
+            Account
+          </h1>
+          <nav aria-label="breadcrumb mx-auto text-center">
+            <ol class="breadcrumb mx-auto justify-content-center">
+              <li class="breadcrumb-item">
+                <a
+                  class="active text-capitalize text-success text-decoration-none fs-6"
+                  href="./signUp"
+                  >Register</a
+                >
+              </li>
+              <li class="breadcrumb-item">
+                <a
+                  class="active text-capitalize text-success text-decoration-none fs-6"
+                  href="./login"
+                  >user login</a
+                >
+              </li>
+              <li class="breadcrumb-item">
+                <a
+                  class="text-capitalize text-black text-decoration-none fs-6"
+                  href="./adminLogin"
+                  >admin login</a
+                >
+              </li>
+            </ol>
+          </nav>
+        </div>
+  
+        <!-- ======================================= -->
+      </article>
+    </section>
+    <!-- ======================FORM========================== -->
+    <section class="login-form mb-5">
+      <div
+        class="login__alert-error mx-auto text-capitalize alert alert-danger"
+        *ngIf="msgError"
+      >
+        {{ msgError }}
+      </div>
+  
+      <form #loginForm="ngForm" (ngSubmit)="handleSubmit(loginForm)">
+        <div class="login-container container mb-5">
+          <div class="form-floating login__name mb-3">
+            <input
+              [(ngModel)]="model.userName"
+              [ngModelOptions]="{ standalone: true }"
+              name="name"
+              #name="ngModel"
+              required
+              name
+              minlength="5"
+              type="text"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="floatingInput"
+              placeholder="name"
+              value="kminchelle"
+            />
+            <label
+              for="floatingInput"
+              class="text-capitalize fw-medium text-success"
+              >Username *</label
+            >
+            <!-- ===========ALERT ERROR============ -->
+            <div
+              class="alert alert-danger"
+              *ngIf="loginForm.submitted && name.invalid"
+            >
+              <div *ngIf="name.errors?.['required']">Username is required</div>
+              <div *ngIf="name.errors?.['name']">Invalid name</div>
+              <div *ngIf="name.errors?.['minlength']">min length = 5</div>
+            </div>
+          </div>
+  
+          <!-- ====================================fullName================ -->
+          <div class="form-floating mb-3">
+            <input
+              [(ngModel)]="model.fullName"
+              [ngModelOptions]="{ standalone: true }"
+              name="fullName"
+              #fullName="ngModel"
+              required
+              type="text"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="fullNameInput"
+              placeholder="Full Name"
+            />
+            <label for="fullNameInput" class="text-capitalize fw-medium text-success">Full Name *</label>
+            <!-- Error messages -->
+            <div class="alert alert-danger" *ngIf="loginForm.submitted && fullName.invalid">
+              <div *ngIf="fullName.errors?.['required']">Full Name is required</div>
+            </div>
+          </div>
+  
+          <!-- ==============================Email===================== -->
+          <div class="form-floating mb-3">
+            <input
+              [(ngModel)]="model.email"
+              [ngModelOptions]="{ standalone: true }"
+              name="email"
+              #email="ngModel"
+              required
+              email
+              type="email"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="floatingemailInput"
+              placeholder="Email"
+            />
+            <label for="floatingemailInput" class="text-capitalize fw-medium text-success">Email *</label>
+            <!-- Error messages -->
+            <div class="alert alert-danger" *ngIf="loginForm.submitted && email.invalid">
+              <div *ngIf="email.errors?.['required']">Email is required</div>
+              <div *ngIf="email.errors?.['email']">Invalid email format</div>
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <div class="form-floating login__password">
+            <input
+              [(ngModel)]="model.password"
+              [ngModelOptions]="{ standalone: true }"
+              name="password"
+              required
+              #password="ngModel"
+              type="password"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="floatingPassword"
+              placeholder="Password"
+              value="0lelplR"
+            />
+  
+            <label
+              class="text-capitalize fw-medium text-success"
+              for="floatingPassword"
+              >Password *</label
+            >
+            <!-- ===========ALERT ERROR============ -->
+            <div
+              class="alert alert-danger"
+              *ngIf="password.invalid && (password.dirty || loginForm.submitted)"
+            >
+              <div *ngIf="password.errors?.['required']">
+                password is required
+              </div>
+              <div *ngIf="password.errors?.['pattern']">Match the pattern</div>
+            </div>
+          </div>
+  
+          <!-- ============================phoneNumber=================== -->
+          <div class="form-floating mb-3">
+            <input
+              [(ngModel)]="model.phoneNumber"
+              [ngModelOptions]="{ standalone: true }"
+              name="phoneNumber"
+              #phoneNumber="ngModel"
+              required
+              minlength="10"
+              type="tel"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="phoneInput"
+              placeholder="Phone Number"
+            />
+            <label for="phoneInput" class="text-capitalize fw-medium text-success">Phone Number *</label>
+            <!-- Error messages -->
+            <div class="alert alert-danger" *ngIf="loginForm.submitted && phoneNumber.invalid">
+              <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required</div>
+              <div *ngIf="phoneNumber.errors?.['minlength']">Minimum length is 10 digits</div>
+            </div>
+          </div>
+          <!-- ==========================Age============== -->
+          <div class="form-floating mb-3">
+            <input
+              [(ngModel)]="model.age"
+              [ngModelOptions]="{ standalone: true }"
+              name="age"
+              #age="ngModel"
+              required
+              type="number"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="ageInput"
+              placeholder="Age"
+              min="18"
+            />
+            <label for="ageInput" class="text-capitalize fw-medium text-success">Age *</label>
+            <!-- Error messages -->
+            <div class="alert alert-danger" *ngIf="loginForm.submitted && age.invalid">
+              <div *ngIf="age.errors?.['required']">Age is required</div>
+              <div *ngIf="age.errors?.['min']">Minimum age is 18</div>
+            </div>
+          </div>
+          <!-- ============================Gender============ -->
+          <div class="form-floating mb-3">
+            <input
+              [(ngModel)]="model.gender"
+              [ngModelOptions]="{ standalone: true }"
+              name="gender"
+              #gender="ngModel"
+              required
+              type="text"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="genderInput"
+              placeholder="Gender"
+            />
+            <label for="genderInput" class="text-capitalize fw-medium text-success">Gender *</label>
+            <!-- Error messages -->
+            <div class="alert alert-danger" *ngIf="loginForm.submitted && gender.invalid">
+              <div *ngIf="gender.errors?.['required']">Gender is required</div>
+            </div>
+          </div>
+          <!-- ====================================role===================================== -->
+          <div class="form-floating mb-3">
+            <input
+              [(ngModel)]="model.role"
+              [ngModelOptions]="{ standalone: true }"
+              name="role"
+              #role="ngModel"
+              required
+              type="text"
+              class="form-control rounded-0 border-0 border-bottom"
+              id="roleInput"
+              placeholder="role"
+            />
+            <label for="roleInput" class="text-capitalize fw-medium text-success">Role *</label>
+            <!-- Error messages -->
+            <div class="alert alert-danger" *ngIf="loginForm.submitted && role.invalid">
+              <div *ngIf="role.errors?.['required']">Role is required</div>
+            </div>
+          </div>
+          <!-- ================================================== -->
+          <div class="d-flex justify-content-center login__submit">
+            <button
+              type="submit"
+              class="btn btn-outline-success text-capitalize px-5 my-3"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <!-- ======================FOOTER=========================-->
+    <app-footer></app-footer>
+    <!-- ============================================================ -->
+  </main>
